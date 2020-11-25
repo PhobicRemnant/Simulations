@@ -1,0 +1,74 @@
+<robot name="mobile_robot">
+
+     <material name="black">
+        <color rgba="0 0 0 1.0"/>
+    </material>
+
+    <link name="base">
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <box size="1.2 0.50 0.10"/>
+                </geometry>    
+        </collision>
+
+        <visual>
+            <geometry>
+                <box size="1.2 0.50 0.10" rpy="0.0 0.0 0.0"/>
+            </geometry>                  
+        </visual>
+
+    </link>
+
+    <link name="right_wheel">
+        <collision>
+            <origin xyz="0.4 0.30 0.025" rpy="1.57 0.0 0.0"/>
+                <geometry>
+                    <cylinder radius="0.15" length="0.03"/>
+                </geometry>
+        </collision>      
+
+        <visual>
+            <origin xyz="0.4 0.30 0.025" rpy="1.57 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.15" length="0.03"/>
+            </geometry>  
+            <material name="black"/>
+        </visual>
+    </link>
+
+  <link name="left_wheel">
+        <collision>
+            <origin xyz="0.4 -0.30 0.025" rpy="1.57 0.0 0.0"/>
+                <geometry>
+                    <cylinder radius="0.15" length="0.03"/>
+                </geometry>
+        </collision>      
+
+        <visual>
+            <origin xyz="0.4 -0.30 0.025" rpy="1.57 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="0.15" length="0.03"/>
+            </geometry>  
+            <material name="black"/>
+        </visual>
+    </link>
+
+
+    <joint name="body_to_right_wheel" type="continuous">
+        <axis xyz="0 1 0"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base"/>
+        <child link="right_wheel"/>
+    </joint>
+
+    <joint name="body_to_left_wheel" type="continuous">
+        <axis xyz="0 1 0"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base"/>
+        <child link="left_wheel"/>
+    </joint>
+
+
+
+</robot>
